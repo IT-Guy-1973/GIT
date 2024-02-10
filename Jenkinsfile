@@ -10,6 +10,8 @@ pipeline {
         stage('Run Ansible job') {
             steps {
                 sh '''
+                pwd ;
+                ls ;
                 export ANSIBLE_HOST_KEY_CHECKING=False ;  ansible-playbook -i inventory-cicd.yml site.yml -u hettin -b  ;
                 '''
             }
