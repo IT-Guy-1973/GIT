@@ -7,9 +7,11 @@ pipeline {
                 sh 'echo Hello'
             }
         }
-        stage(sleep) {
+        stage('Run Ansible job') {
             steps {
-                sh 'sleep 60'
+                sh '''
+                export ANSIBLE_HOST_KEY_CHECKING=False ;  ansible-playbook -i inventory-cicd.yml site.yml -u ansible -b  --vault-password-file=~/.pass  ;
+                '''
             }
         }
         stage(Hello2) {
