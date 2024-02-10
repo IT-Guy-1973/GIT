@@ -1,0 +1,6 @@
+---
+- name: This Playbook runs a test play
+  hosts: all
+  gather_facts: true
+  tasks:
+    ping:
