@@ -9,6 +9,8 @@ pipeline {
         }
         stage('Run Ansible job') {
             steps {
+
+                git changelog: false, credentialsId: 'bigcokeadmin', poll: false, url: 'https://github.com/bigcokeadmin/linux-support.git'
                 sh '''
                 pwd ;
                 ls ;
