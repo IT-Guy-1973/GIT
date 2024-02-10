@@ -9,12 +9,13 @@ pipeline {
         }
         stage('Run Ansible job') {
             steps {
-
+              dir('Compute-Linux')  {
                 git changelog: false, credentialsId: 'bigcokeadmin', poll: false, url: 'https://github.com/bigcokeadmin/linux-support.git'
+              }
                 sh '''
                 pwd ;
                 ls ;
-                export ANSIBLE_HOST_KEY_CHECKING=False ;  ansible-playbook -i inventory-cicd.yml site.yml -u hettin -b  ;
+                export ANSIBLE_HOST_KEY_CHECKING=False ;  ansible-playbook -i Compute-Linux/inventory-cicd.yml site.yml -u hettin -b  ;
                 '''
             }
         }
