@@ -3,4 +3,5 @@
   hosts: all
   gather_facts: true
   tasks:
+  - name: This does a ping
     ping:
