@@ -10,7 +10,7 @@ pipeline {
         stage('Run Ansible job') {
             steps {
                 sh '''
-                export ANSIBLE_HOST_KEY_CHECKING=False ;  ansible-playbook -i inventory-cicd.yml site.yml -u ansible -b  --vault-password-file=~/.pass  ;
+                export ANSIBLE_HOST_KEY_CHECKING=False ;  ansible-playbook -i inventory-cicd.yml site.yml -u hettin -b  ;
                 '''
             }
         }
